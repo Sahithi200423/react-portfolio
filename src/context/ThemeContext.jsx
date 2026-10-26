@@ -33,6 +33,11 @@ export function ThemeProvider({ children }) {
     try {
       // Apply theme to document root element
       document.documentElement.setAttribute('data-theme', theme);
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
       localStorage.setItem(THEME_STORAGE_KEY, theme);
     } catch (err) {
       console.warn('Could not persist theme to localStorage:', err);
