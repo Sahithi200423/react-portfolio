@@ -25,13 +25,13 @@ export const personalInfo = {
 };
 
 export const aboutData = {
-  headline: "Computer Science scholar crafting high-performance web applications",
+  headline: "Engineering Graduate crafting high-performance web applications",
   paragraphs: [
-    "I am a Frontend Developer and Web Application Engineer pursuing my B.Tech + M.Tech Dual Degree in Computer Science and Engineering at Andhra University College of Engineering (A), Visakhapatnam. My philosophy centers around learning by building practical, real-world systems—combining clean semantic code with expressive typography, smooth transitions, and intuitive design patterns.",
+    "I am an Engineering Graduate and Web Application Engineer who completed my degree in Computer Science and Engineering at Andhra University College of Engineering (A), Visakhapatnam. My philosophy centers around learning by building practical, real-world systems—combining clean semantic code with expressive typography, smooth transitions, and intuitive design patterns.",
     "From designing high-concurrency ticket reservations in CineBook with atomic seat locks to developing interactive web graphics with Three.js, I focus on engineering web applications that feel fluid, reliable, and delightful to interact with across every screen size.",
   ],
   educationSummary: {
-    degree: "B.Tech + M.Tech Dual Degree (CSE)",
+    degree: "B.Tech in Computer Science and Engineering — Graduated",
     university: "Andhra University College of Engineering (A)",
     location: "Visakhapatnam, Andhra Pradesh, India",
     focus: "React, Modern JavaScript, UI/UX, REST APIs",
@@ -135,71 +135,54 @@ export const projectsData = [
     },
   },
   {
-    id: "scenelingo",
-    title: "SceneLingo — Native Language AI & Acting Studio",
-    category: "Web Apps",
-    badge: "AI Concept & Rehearsal Studio",
-    flagship: false,
-    featured: false,
-    summary:
-      "Multilingual Telugu learning and dramatic dialogue rehearsal studio featuring 5-tier cognitive transliteration and in-browser camera rehearsal.",
-    description:
-      "Designed to help aspiring actors, theatre performers, and native-language learners master Telugu dialogues through English-letter transliteration, emotion guides, and browser-based video rehearsal.",
-    problemSolved:
-      "Aspiring performers struggle to read native regional scripts (such as Telugu) while simultaneously managing dramatic emotional delivery and natural vocal cadence.",
-    myContribution:
-      "Engineered the 5-tier cognitive learning framework (English prompt, native script, Romanized transliteration, phonetic pronunciation, and contextual meaning), integrated the Web Speech API for native audio synthesis, and created an in-browser webcam recording studio using the HTML5 MediaRecorder API.",
-    technologies: ["React 19", "TypeScript", "Web Speech API", "MediaRecorder API", "Tailwind CSS", "Vite"],
-    liveUrl: null, // Local-first project
-    githubUrl: "https://github.com/Sahithi200423/native-language-ai.git",
-    image: "/assets/projects/scenelingo_preview.png",
-    highlights: [
-      "5-tier cognitive phrase learning & transliteration",
-      "16 dramatic dialogue scene labs with subtext cues",
-      "In-browser camera recording & timeline playback",
-      "8-dimension guided self-evaluation rubric",
-    ],
-    availabilityNote: "Live demo in local development / Source code verified on GitHub.",
-  },
-  {
     id: "groundwater",
-    title: "Global Groundwater Consultants Web Portal",
-    category: "Data Science",
-    badge: "Hydrogeological Solutions Portal",
-    flagship: false,
-    featured: false,
+    title: "Global Groundwater Consultants — Enterprise Web Portal",
+    category: "Full-Stack",
+    badge: "Featured Environmental Platform",
+    flagship: true,
+    featured: true,
     summary:
-      "Enterprise digital web platform engineered for a professional hydrogeological and rainwater harvesting consultancy firm.",
+      "Full-stack hydrogeological survey and groundwater consulting web platform featuring 5 specialized mathematical calculators, an administrative operations subsystem, and client engagement tools.",
     description:
-      "A comprehensive technical web solution that bridges the gap between field hydrogeologists and clients (industrial, agricultural, and residential) through interactive preliminary engineering calculators and service documentation.",
+      "A comprehensive technical web solution engineered for a professional hydrogeological and environmental consultancy firm. It bridges the gap between field hydrogeologists and clients (industrial, agricultural, and residential) through interactive preliminary engineering calculators, client consultation request flows, and administrative management.",
     problemSolved:
       "Groundwater recharge feasibility and Central Ground Water Authority (CGWA) compliance require complex calculations, unit conversions, and immediate preliminary documentation for clients.",
     myContribution:
-      "Developed 5 specialized engineering calculators (Groundwater Recharge, Rainwater Harvesting, Daily Water Requirement, Project Cost Estimator with downloadable PDF summary via jsPDF, and Hydraulic Unit Converter), integrated with a 10-view administrative management subsystem.",
-    technologies: ["React", "TypeScript", "Tailwind CSS", "jsPDF", "Supabase SDK", "Vite"],
-    liveUrl: null, // Private / internal deployment
-    githubUrl: null, // Proprietary client repository
+      "Architected the full-stack portal with React 19, TypeScript, and Vite. Implemented 5 specialized mathematical domain calculators with jsPDF client-side estimation report exports, an emergency helpline modal, and a 10-view administrative management subsystem integrated with Supabase.",
+    technologies: ["React 19", "TypeScript", "Tailwind CSS v4", "Supabase", "jsPDF", "Express", "Vite", "Motion"],
+    liveUrl: null, // Staging / local development
+    githubUrl: "https://github.com/Sahithi200423/GlobalGroundWater",
     image: null,
     highlights: [
-      "5 specialized hydrogeological and rainwater harvesting calculators",
-      "Client-side estimation PDF report generation using jsPDF",
-      "Comprehensive service catalog and consultation request flows",
-      "10-view administrative portal for appointments and inquiries",
+      "5 specialized engineering calculators (Groundwater Recharge, Rainwater Harvesting, Water Demand, Cost Estimator, Hydraulic Units)",
+      "Client-side preliminary estimation PDF report generation using jsPDF",
+      "10-view administrative management portal with Supabase database integration for appointments & inquiries",
+      "Comprehensive service catalog, consultation booking workflows, and 24/7 emergency helpline trigger",
     ],
-    availabilityNote: "Enterprise Client Solution (Source Code & Live Deployment Private).",
+    architecture: {
+      calculators:
+        "Engineered 5 mathematical domain tools: Groundwater Recharge (soil permeability & runoff volume), Rainwater Harvesting (annual harvest potential), Daily Water Demand (per-capita/industrial forecasting), Project Cost Estimator (budgeting with jsPDF export), and Hydraulic Unit Converter (flux, volume, pressure).",
+      adminSubsystem:
+        "10-view administrative management portal integrated with Supabase for appointments, client testimonials, service catalogs, project case studies, and career applications.",
+      workflows:
+        "Client consultation request flows, WhatsApp consultation trigger, 24/7 emergency helpline modal, and global search functionality.",
+      stack:
+        "React 19, TypeScript, Tailwind CSS v4, Express server, Motion animations, jsPDF report generator, and Supabase database client.",
+    },
+    availabilityNote: "Verified Open-Source Repository on GitHub / Staging Deployment in Local Development.",
   },
 ];
 
 export const educationData = [
   {
     id: "au-dual-degree",
-    degree: "B.Tech + M.Tech Dual Degree in Computer Science and Engineering",
+    degree: "B.Tech in Computer Science and Engineering — Graduated",
     institution: "Andhra University College of Engineering (Autonomous)",
     location: "Visakhapatnam, Andhra Pradesh, India",
-    period: "2021 – Present",
-    status: "In Progress",
+    period: "Graduated",
+    status: "Completed",
     description:
-      "Rigorous dual degree program covering fundamental computer science, software engineering principles, full-stack web architectures, and algorithms.",
+      "Rigorous engineering program covering fundamental computer science, software engineering principles, full-stack web architectures, and algorithms.",
     coursework: [
       "Data Structures & Algorithms",
       "Web Technologies & Frameworks",

@@ -160,7 +160,7 @@ export const journalArticles = [
         id: "theory-vs-practice",
         heading: "1. Moving Beyond Tutorial Island",
         paragraphs: [
-          "As a student pursuing my B.Tech + M.Tech Dual Degree in Computer Science at Andhra University College of Engineering, I spent years studying algorithms, operating systems, and database theory. But academic coursework alone doesn't teach you how to build software that real people interact with.",
+          "During my engineering degree in Computer Science at Andhra University College of Engineering, I spent years studying algorithms, operating systems, and database theory. But academic coursework alone doesn't teach you how to build software that real people interact with.",
           "Early on, it was easy to fall into 'tutorial island'—following a video where everything works because all the edge cases have been edited out. The real learning only began when I closed the tutorials and started building complete projects from scratch.",
         ],
       },

@@ -1,6 +1,6 @@
 import * as React from "react";
 import { projectsData } from "@/data/portfolioData";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -20,31 +20,29 @@ import {
   Lock,
   Database,
   Sliders,
+  Calculator,
+  Droplets,
+  FileDown,
   ShieldCheck,
-  FileCode,
 } from "lucide-react";
 import { GithubIcon } from "@/components/SocialIcons";
 
 export default function Projects() {
   const [filter, setFilter] = React.useState("all");
-  const [isCaseStudyOpen, setIsCaseStudyOpen] = React.useState(false);
+  const [isCinebookModalOpen, setIsCinebookModalOpen] = React.useState(false);
+  const [isGroundwaterModalOpen, setIsGroundwaterModalOpen] = React.useState(false);
 
   const categories = [
-    { id: "all", label: "All Systems" },
-    { id: "Full-Stack", label: "Full-Stack" },
-    { id: "Web Apps", label: "Web Applications" },
-    { id: "Data Science", label: "Data Science & Tools" },
+    { id: "all", label: "All Featured Projects" },
+    { id: "Full-Stack", label: "Full-Stack Architecture" },
+    { id: "Calculators", label: "Engineering & Calculators" },
   ];
 
   const cinebook = projectsData.find((p) => p.id === "cinebook") || projectsData[0];
-  const otherProjects = projectsData.filter((p) => p.id !== "cinebook");
-
-  const filteredOtherProjects =
-    filter === "all"
-      ? otherProjects
-      : otherProjects.filter((p) => p.category === filter);
+  const groundwater = projectsData.find((p) => p.id === "groundwater") || projectsData[1];
 
   const showCinebook = filter === "all" || filter === "Full-Stack";
+  const showGroundwater = filter === "all" || filter === "Full-Stack" || filter === "Calculators";
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 sm:py-20 space-y-16">
@@ -52,13 +50,13 @@ export default function Projects() {
       <section className="space-y-6">
         <div className="space-y-3">
           <Badge variant="outline" className="font-mono text-xs">
-            Software Architecture &amp; Systems
+            Software Architecture &amp; Production Systems
           </Badge>
           <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-foreground">
             Featured Projects
           </h1>
           <p className="text-base sm:text-lg text-muted-foreground max-w-2xl leading-relaxed">
-            Production-oriented full-stack web applications, atomic concurrency systems, and technical tools. 
+            Full-stack web applications, atomic concurrency systems, and domain-specific engineering calculators. 
             All details reflect verified codebases and implemented functionality.
           </p>
         </div>
@@ -82,7 +80,7 @@ export default function Projects() {
       </section>
 
       {/* 2. CineBook Featured Case Study Spotlight */}
-      {showCinebook && (
+      {showCinebook && cinebook && (
         <section className="space-y-4">
           <div className="flex items-center justify-between">
             <span className="text-xs font-mono text-muted-foreground uppercase tracking-wider flex items-center gap-1.5">
@@ -192,7 +190,7 @@ export default function Projects() {
                   )}
 
                   {/* Deep Architecture Modal Trigger */}
-                  <Dialog open={isCaseStudyOpen} onOpenChange={setIsCaseStudyOpen}>
+                  <Dialog open={isCinebookModalOpen} onOpenChange={setIsCinebookModalOpen}>
                     <DialogTrigger asChild>
                       <Button variant="secondary" size="sm" className="cursor-pointer">
                         <Layers className="mr-1.5 h-3.5 w-3.5" />
@@ -281,140 +279,246 @@ export default function Projects() {
         </section>
       )}
 
-      {/* 3. Other Engineered Systems */}
-      <section className="space-y-6">
-        <div className="space-y-1">
-          <span className="text-xs font-mono text-muted-foreground uppercase tracking-wider">
-            Additional Applications
-          </span>
-          <h2 className="text-2xl font-bold tracking-tight text-foreground">
-            Web Applications &amp; Analytical Systems
-          </h2>
-        </div>
+      {/* 3. Global Groundwater Consultants Featured Project Spotlight */}
+      {showGroundwater && groundwater && (
+        <section className="space-y-4">
+          <div className="flex items-center justify-between">
+            <span className="text-xs font-mono text-muted-foreground uppercase tracking-wider flex items-center gap-1.5">
+              <Droplets size={13} className="text-primary" />
+              Featured Enterprise Platform
+            </span>
+            <span className="text-xs font-mono text-cyan-600 dark:text-cyan-400 font-medium">
+              ★ 5 Engineering Domain Calculators
+            </span>
+          </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {filteredOtherProjects.map((project) => (
-            <Card
-              key={project.id}
-              className="flex flex-col justify-between border-border hover:border-foreground/30 transition-all duration-200 overflow-hidden"
-            >
-              <div className="space-y-4">
-                {/* Visual Preview where available */}
-                {project.image ? (
-                  <div className="overflow-hidden border-b border-border/70 bg-muted/30">
-                    <img
-                      src={project.image}
-                      alt={`${project.title} screenshot preview`}
-                      className="w-full h-48 object-cover object-top transition-transform duration-300 hover:scale-[1.02] motion-reduce:transition-none"
-                      loading="lazy"
-                    />
-                  </div>
-                ) : (
-                  /* Placeholder Architectural Badge for projects without image */
-                  <div className="h-48 border-b border-border/70 bg-secondary/30 flex flex-col items-center justify-center p-6 text-center space-y-2">
-                    <FileCode className="h-10 w-10 text-muted-foreground/60" />
-                    <span className="text-xs font-mono font-medium text-foreground">
-                      Enterprise Consulting Portal
-                    </span>
-                    <span className="text-[11px] text-muted-foreground max-w-xs">
-                      5 Technical Hydrogeological Calculators &amp; jsPDF Summary Export
+          <Card className="border-border hover:border-foreground/30 transition-all duration-200 overflow-hidden">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 p-6 sm:p-8">
+              {/* Left Column: Calculators Architectural Showcase Card */}
+              <div className="lg:col-span-5 space-y-3">
+                <div className="rounded-lg border border-border/80 bg-secondary/30 p-5 space-y-3.5">
+                  <div className="flex items-center gap-2 border-b border-border/60 pb-3">
+                    <Calculator className="h-5 w-5 text-primary" />
+                    <span className="font-semibold text-foreground text-sm">
+                      5 Hydrogeological Calculators
                     </span>
                   </div>
-                )}
 
-                <div className="p-6 space-y-4">
-                  <div className="flex flex-wrap items-center justify-between gap-2">
-                    <Badge variant="secondary" className="text-xs font-mono">
-                      {project.category}
+                  <ul className="space-y-2.5 text-xs">
+                    <li className="flex items-start gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-primary mt-1.5 shrink-0" />
+                      <div>
+                        <strong className="text-foreground block text-[11px]">Groundwater Recharge Calculator</strong>
+                        <span className="text-muted-foreground text-[11px]">Soil permeability &amp; runoff volume modeling</span>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-primary mt-1.5 shrink-0" />
+                      <div>
+                        <strong className="text-foreground block text-[11px]">Rainwater Harvesting Calculator</strong>
+                        <span className="text-muted-foreground text-[11px]">Catchment area &amp; annual yield forecasting</span>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-primary mt-1.5 shrink-0" />
+                      <div>
+                        <strong className="text-foreground block text-[11px]">Water Requirement Calculator</strong>
+                        <span className="text-muted-foreground text-[11px]">Per-capita &amp; industrial demand analysis</span>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-primary mt-1.5 shrink-0" />
+                      <div>
+                        <strong className="text-foreground block text-[11px]">Project Cost Estimator</strong>
+                        <span className="text-muted-foreground text-[11px]">Budgeting with instant client-side jsPDF export</span>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-primary mt-1.5 shrink-0" />
+                      <div>
+                        <strong className="text-foreground block text-[11px]">Hydraulic Unit Converter</strong>
+                        <span className="text-muted-foreground text-[11px]">Flux, volume, permeability, and pressure</span>
+                      </div>
+                    </li>
+                  </ul>
+
+                  <div className="pt-2 border-t border-border/50 flex items-center justify-between text-[11px] font-mono text-muted-foreground">
+                    <span>Export format:</span>
+                    <span className="inline-flex items-center gap-1 text-primary font-medium">
+                      <FileDown size={12} /> Client jsPDF Report
+                    </span>
+                  </div>
+                </div>
+
+                <div className="p-3.5 rounded-lg border border-border/60 bg-secondary/20 flex items-center gap-2.5 text-xs text-muted-foreground">
+                  <ShieldCheck className="h-4 w-4 text-emerald-500 shrink-0" />
+                  <span>10-View Administrative Subsystem with Supabase data integration</span>
+                </div>
+              </div>
+
+              {/* Right Column: Platform Details & Actions */}
+              <div className="lg:col-span-7 flex flex-col justify-between space-y-6">
+                <div className="space-y-4">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <Badge variant="default" className="text-xs font-mono">
+                      {groundwater.category}
                     </Badge>
-                    <span className="text-[11px] font-mono text-muted-foreground">
-                      {project.badge}
-                    </span>
+                    <Badge variant="secondary" className="text-xs font-mono">
+                      {groundwater.badge}
+                    </Badge>
                   </div>
 
-                  <CardTitle className="text-xl font-bold leading-snug">
-                    {project.title}
-                  </CardTitle>
+                  <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
+                    {groundwater.title}
+                  </h2>
 
-                  <CardDescription className="text-sm leading-relaxed text-foreground/80">
-                    {project.description}
-                  </CardDescription>
+                  <p className="text-sm sm:text-base text-foreground/80 leading-relaxed">
+                    {groundwater.summary}
+                  </p>
 
-                  {/* Problem Solved & Contribution */}
-                  <div className="space-y-2 rounded-md bg-secondary/40 p-3.5 border border-border/60 text-xs">
+                  {/* Problem & Contribution Breakdown */}
+                  <div className="space-y-3 rounded-lg bg-secondary/40 p-4 border border-border/60 text-xs">
                     <div>
-                      <span className="font-semibold text-foreground text-[11px] block">
+                      <span className="font-semibold text-foreground uppercase tracking-wider text-[11px] block">
                         Problem Addressed:
                       </span>
                       <p className="text-muted-foreground mt-0.5 leading-relaxed">
-                        {project.problemSolved}
+                        {groundwater.problemSolved}
                       </p>
                     </div>
-                    <div className="pt-1.5 border-t border-border/40">
-                      <span className="font-semibold text-foreground text-[11px] block">
-                        Implementation Contribution:
+
+                    <div className="pt-2 border-t border-border/40">
+                      <span className="font-semibold text-foreground uppercase tracking-wider text-[11px] block">
+                        My Contribution &amp; Architecture:
                       </span>
                       <p className="text-muted-foreground mt-0.5 leading-relaxed">
-                        {project.myContribution}
+                        {groundwater.myContribution}
                       </p>
                     </div>
                   </div>
 
-                  {/* Highlights */}
-                  <ul className="space-y-1 text-xs text-muted-foreground">
-                    {project.highlights.slice(0, 3).map((h, i) => (
-                      <li key={i} className="flex items-start gap-1.5">
-                        <span className="text-primary font-bold">•</span>
-                        <span>{h}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  {/* Technologies */}
+                  {/* Technology Badges */}
                   <div className="flex flex-wrap gap-1.5 pt-1">
-                    {project.technologies.map((tech) => (
+                    {groundwater.technologies.map((tech) => (
                       <Badge key={tech} variant="tech">
                         {tech}
                       </Badge>
                     ))}
                   </div>
                 </div>
-              </div>
 
-              {/* Footer Actions / Honest Link Availability Notice */}
-              <CardFooter className="flex flex-wrap items-center justify-between gap-2 p-6 pt-0 border-t border-border/50">
-                <div className="flex flex-wrap items-center gap-2">
-                  {project.liveUrl ? (
-                    <Button size="sm" asChild>
-                      <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink className="mr-1.5 h-3.5 w-3.5" />
-                        Live Demo
-                      </a>
-                    </Button>
-                  ) : null}
+                {/* Actions: Source Code and Deep Architecture Modal */}
+                <div className="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-border/60">
+                  <div className="flex flex-wrap items-center gap-3">
+                    {groundwater.githubUrl && (
+                      <Button size="sm" asChild className="cursor-pointer">
+                        <a href={groundwater.githubUrl} target="_blank" rel="noopener noreferrer">
+                          <GithubIcon size={14} className="mr-1.5" />
+                          Source Code
+                        </a>
+                      </Button>
+                    )}
 
-                  {project.githubUrl ? (
-                    <Button variant="outline" size="sm" asChild>
-                      <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                        <GithubIcon size={14} className="mr-1.5" />
-                        Source Code
-                      </a>
-                    </Button>
-                  ) : null}
+                    {/* Architecture Modal Trigger */}
+                    <Dialog open={isGroundwaterModalOpen} onOpenChange={setIsGroundwaterModalOpen}>
+                      <DialogTrigger asChild>
+                        <Button variant="secondary" size="sm" className="cursor-pointer">
+                          <Layers className="mr-1.5 h-3.5 w-3.5" />
+                          View Architecture &amp; Calculators
+                        </Button>
+                      </DialogTrigger>
+
+                      <DialogContent className="max-w-2xl">
+                        <DialogHeader className="space-y-2">
+                          <div className="flex items-center gap-2">
+                            <Badge variant="default" className="text-xs">
+                              Global Groundwater Consultants
+                            </Badge>
+                            <span className="text-xs font-mono text-muted-foreground">
+                              Technical Implementation Specs
+                            </span>
+                          </div>
+                          <DialogTitle className="text-xl sm:text-2xl">
+                            Domain Calculators &amp; Architecture Model
+                          </DialogTitle>
+                          <DialogDescription className="text-xs sm:text-sm">
+                            Implementation details of hydrogeological calculators, PDF export, and administrative subsystem.
+                          </DialogDescription>
+                        </DialogHeader>
+
+                        <div className="space-y-5 py-3 text-xs sm:text-sm leading-relaxed text-foreground/85">
+                          {/* 1. Calculators */}
+                          <div className="space-y-1.5 rounded-lg border border-border p-3.5 bg-secondary/30">
+                            <div className="flex items-center gap-2 font-semibold text-foreground">
+                              <Calculator className="h-4 w-4 text-primary" />
+                              <span>1. Five Specialized Domain Calculators</span>
+                            </div>
+                            <p className="text-xs text-muted-foreground">
+                              {groundwater.architecture.calculators}
+                            </p>
+                          </div>
+
+                          {/* 2. Admin Subsystem */}
+                          <div className="space-y-1.5 rounded-lg border border-border p-3.5 bg-secondary/30">
+                            <div className="flex items-center gap-2 font-semibold text-foreground">
+                              <Database className="h-4 w-4 text-primary" />
+                              <span>2. 10-View Admin Operations Subsystem</span>
+                            </div>
+                            <p className="text-xs text-muted-foreground">
+                              {groundwater.architecture.adminSubsystem}
+                            </p>
+                          </div>
+
+                          {/* 3. Workflows */}
+                          <div className="space-y-1.5 rounded-lg border border-border p-3.5 bg-secondary/30">
+                            <div className="flex items-center gap-2 font-semibold text-foreground">
+                              <CheckCircle2 className="h-4 w-4 text-primary" />
+                              <span>3. Client Consultation &amp; Emergency Workflows</span>
+                            </div>
+                            <p className="text-xs text-muted-foreground">
+                              {groundwater.architecture.workflows}
+                            </p>
+                          </div>
+
+                          {/* 4. Tech Stack */}
+                          <div className="space-y-1.5 rounded-lg border border-border p-3.5 bg-secondary/30">
+                            <div className="flex items-center gap-2 font-semibold text-foreground">
+                              <Sliders className="h-4 w-4 text-primary" />
+                              <span>4. Technical Stack &amp; Tools</span>
+                            </div>
+                            <p className="text-xs text-muted-foreground">
+                              {groundwater.architecture.stack}
+                            </p>
+                          </div>
+                        </div>
+
+                        <div className="flex flex-wrap items-center justify-end gap-2 pt-2 border-t border-border">
+                          {groundwater.githubUrl && (
+                            <Button size="sm" asChild>
+                              <a href={groundwater.githubUrl} target="_blank" rel="noopener noreferrer">
+                                <GithubIcon size={14} className="mr-1.5" />
+                                View Repository on GitHub
+                              </a>
+                            </Button>
+                          )}
+                        </div>
+                      </DialogContent>
+                    </Dialog>
+                  </div>
+
+                  {/* Availability Note */}
+                  {groundwater.availabilityNote && (
+                    <span className="text-[11px] font-mono text-muted-foreground italic flex items-center gap-1">
+                      <Info size={12} className="shrink-0" />
+                      {groundwater.availabilityNote}
+                    </span>
+                  )}
                 </div>
-
-                {/* Visible status indicator when link is unavailable */}
-                {project.availabilityNote && (
-                  <span className="text-[11px] font-mono text-muted-foreground italic flex items-center gap-1">
-                    <Info size={12} className="shrink-0" />
-                    {project.availabilityNote}
-                  </span>
-                )}
-              </CardFooter>
-            </Card>
-          ))}
-        </div>
-      </section>
+              </div>
+            </div>
+          </Card>
+        </section>
+      )}
     </div>
   );
 }

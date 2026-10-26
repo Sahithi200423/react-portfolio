@@ -3,8 +3,8 @@ import { useParams, Link } from "react-router-dom";
 import { journalArticles } from "@/data/journalArticles";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
-import { ArrowLeft, Calendar, Clock, BookOpen, AlertCircle, Bookmark, Share2, Check } from "lucide-react";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { ArrowLeft, Calendar, Clock, AlertCircle, Bookmark, Share2, Check } from "lucide-react";
 
 export default function JournalArticle() {
   const { slug } = useParams();

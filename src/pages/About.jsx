@@ -4,7 +4,7 @@ import { personalInfo, aboutData, educationData, skillsData } from "@/data/portf
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { FileDown, GraduationCap, MapPin, Code2, ArrowUpRight, BookOpen, Compass, CheckCircle2 } from "lucide-react";
+import { FileDown, GraduationCap, MapPin, Code2, ArrowUpRight } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/SocialIcons";
 
 export default function About() {
@@ -30,7 +30,7 @@ export default function About() {
           </span>
           <span className="inline-flex items-center gap-1.5 rounded-md border border-border bg-secondary/40 px-2.5 py-1">
             <GraduationCap size={13} className="text-primary" />
-            AUCE (A) Dual Degree (2021 – Present)
+            AUCE (A) B.Tech CSE — Graduated
           </span>
         </div>
       </section>
@@ -48,7 +48,7 @@ export default function About() {
 
         <div className="prose prose-neutral dark:prose-invert max-w-none space-y-4 text-foreground/85 leading-relaxed text-sm sm:text-base">
           <p>
-            I am currently in my integrated B.Tech + M.Tech Dual Degree in Computer Science and Engineering at 
+            I completed my engineering degree in Computer Science and Engineering at 
             <strong> Andhra University College of Engineering (Autonomous)</strong> in Visakhapatnam. 
             My technical focus grew from a curiosity about how robust backends communicate with smooth, interactive frontends.
           </p>

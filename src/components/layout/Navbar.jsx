@@ -124,7 +124,7 @@ export default function Navbar() {
                       {personalInfo.name}
                     </SheetTitle>
                     <p className="text-xs text-muted-foreground">
-                      Frontend Developer &amp; CSE Scholar
+                      Frontend Developer &amp; CSE Graduate
                     </p>
                   </SheetHeader>
 

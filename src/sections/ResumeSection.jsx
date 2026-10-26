@@ -58,7 +58,7 @@ export default function ResumeSection() {
               <div className="resume-candidate-role">{personalInfo.headline}</div>
 
               <p className="resume-summary-text">
-                Computer Science and Engineering dual-degree scholar at {educationData[0].institution}. Focused on creating clean, responsive, and reliable web applications that unite solid architecture with modern design aesthetics.
+                Engineering Graduate in Computer Science and Engineering from {educationData[0].institution}. Focused on creating clean, responsive, and reliable web applications that unite solid architecture with modern design aesthetics.
               </p>
 
               {/* Verified Highlights Checklist */}

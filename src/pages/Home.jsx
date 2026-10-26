@@ -34,7 +34,7 @@ export default function Home() {
               Frontend developer &amp; web application engineer focused on concurrency, interactive graphics, and clean design.
             </p>
             <p className="text-sm sm:text-base text-muted-foreground leading-relaxed max-w-xl">
-              I am a Computer Science dual-degree scholar at Andhra University College of Engineering (A). 
+              I am an Engineering Graduate in Computer Science and Engineering from Andhra University College of Engineering (A). 
               I design and build production-ready systems that pair robust architecture with editorial, accessible interfaces.
             </p>
 

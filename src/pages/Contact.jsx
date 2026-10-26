@@ -15,9 +15,6 @@ import {
   Loader2,
   MapPin,
   ArrowUpRight,
-  MessageSquare,
-  Sparkles,
-  Info,
 } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/SocialIcons";
 
@@ -200,7 +197,7 @@ export default function Contact() {
                 <div className="space-y-0.5">
                   <span className="block font-medium text-foreground text-xs">Location</span>
                   <span className="text-xs">{personalInfo.location}</span>
-                  <span className="block text-[11px] text-muted-foreground">AUCE Dual-Degree Scholar</span>
+                  <span className="block text-[11px] text-muted-foreground">AUCE (A) CSE Graduate</span>
                 </div>
               </div>
 
