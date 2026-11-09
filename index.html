@@ -8,6 +8,19 @@
     <meta name="description" content="Portfolio of Sahithi Chukka — Frontend Developer and Web Application Engineer specializing in React, responsive user interfaces, and high-performance web systems." />
     <meta name="keywords" content="Sahithi Chukka, Frontend Developer, React, Web Application Engineer, Visakhapatnam, CineBook, Andhra University, JavaScript" />
     <meta name="author" content="Sahithi Chukka" />
+    <meta name="theme-color" content="#18181b" />
+
+    <!-- Open Graph / Facebook / LinkedIn -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Sahithi Chukka | Frontend Developer &amp; Web Application Engineer" />
+    <meta property="og:description" content="Portfolio of Sahithi Chukka — Frontend Developer specializing in React, responsive user interfaces, and high-performance web systems." />
+    <meta property="og:image" content="/assets/warm_outdoor_portrait.png" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Sahithi Chukka | Frontend Developer &amp; Web Application Engineer" />
+    <meta name="twitter:description" content="Portfolio of Sahithi Chukka — Frontend Developer specializing in React, responsive user interfaces, and high-performance web systems." />
+    <meta name="twitter:image" content="/assets/warm_outdoor_portrait.png" />
 
     <!-- Google Fonts Preconnect: Plus Jakarta Sans & JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -15,7 +28,43 @@
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <noscript>
+        <div style="font-family: system-ui, -apple-system, sans-serif; max-width: 600px; margin: 40px auto; padding: 24px; border: 1px solid #e2e8f0; border-radius: 8px; text-align: center; background: #ffffff; color: #0f172a;">
+          <h2 style="font-size: 20px; font-weight: 700; margin-bottom: 8px;">JavaScript Required</h2>
+          <p style="font-size: 14px; color: #64748b;">Please enable JavaScript in your browser to view Sahithi Chukka's Portfolio.</p>
+        </div>
+      </noscript>
+      <script>
+        if (window.location.protocol === 'file:') {
+          document.write(`
+            <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 640px; margin: 60px auto; padding: 32px; border: 1px solid #e2e8f0; border-radius: 12px; background: #ffffff; color: #0f172a; box-shadow: 0 4px 20px rgba(0,0,0,0.06); line-height: 1.6;">
+              <div style="display: inline-block; padding: 4px 12px; background: #fef3c7; color: #92400e; border-radius: 9999px; font-size: 12px; font-weight: 600; margin-bottom: 16px;">
+                ⚡ React + Vite Notice
+              </div>
+              <h1 style="font-size: 22px; font-weight: 700; margin: 0 0 12px; color: #0f172a;">
+                Development Server Required
+              </h1>
+              <p style="font-size: 14px; color: #475569; margin: 0 0 20px;">
+                You are opening <code>index.html</code> directly via the <code>file://</code> protocol.
+                Modern React applications use JSX components and ES modules that <strong>cannot run directly from the local file system</strong> due to browser security restrictions (CORS) and required JSX compilation.
+              </p>
+              <div style="background: #0f172a; color: #f8fafc; border-radius: 8px; padding: 16px; font-family: monospace; font-size: 13px; margin-bottom: 20px;">
+                <div style="color: #94a3b8; margin-bottom: 6px;"># Step 1: Open terminal in the portfolio-react folder:</div>
+                <div style="color: #38bdf8; margin-bottom: 12px;">cd portfolio-react</div>
+                <div style="color: #94a3b8; margin-bottom: 6px;"># Step 2: Start the local Vite server:</div>
+                <div style="color: #4ade80; margin-bottom: 12px;">npm run dev</div>
+                <div style="color: #94a3b8; margin-bottom: 6px;"># Step 3: Open this URL in your web browser:</div>
+                <div style="color: #fbbf24;">http://localhost:5173/</div>
+              </div>
+              <p style="font-size: 13px; color: #64748b; margin: 0;">
+                Once the server starts, your portfolio will load with all pages, interactive features, and styles active.
+              </p>
+            </div>
+          `);
+        }
+      </script>
+    </div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
