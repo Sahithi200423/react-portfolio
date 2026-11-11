@@ -13,7 +13,7 @@ export default function Journal() {
 
   const categories = [
     { id: "All", label: "All Topics" },
-    { id: "System Architecture", label: "Systems & Concurrency" },
+    { id: "System Architecture", label: "Project Walkthroughs" },
     { id: "Portfolio Engineering", label: "Portfolio Engineering" },
     { id: "Learning Journey", label: "Learning Journey" },
   ];

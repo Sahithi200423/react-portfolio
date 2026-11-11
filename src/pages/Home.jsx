@@ -31,11 +31,11 @@ export default function Home() {
               Hello, I'm {personalInfo.name}.
             </h1>
             <p className="text-lg sm:text-xl font-medium text-foreground/85 leading-snug">
-              Frontend developer &amp; web application engineer focused on concurrency, interactive graphics, and clean design.
+              Computer Science graduate &amp; frontend developer focused on responsive React interfaces, clean layouts, and practical web applications.
             </p>
             <p className="text-sm sm:text-base text-muted-foreground leading-relaxed max-w-xl">
-              I am an Engineering Graduate in Computer Science and Engineering from Andhra University College of Engineering (A). 
-              I design and build production-ready systems that pair robust architecture with editorial, accessible interfaces.
+              I completed my B.Tech in Computer Science and Engineering from Andhra University College of Engineering (A). 
+              I enjoy building responsive web projects with React, connecting frontends to REST APIs, and creating accessible user interfaces.
             </p>
 
             {/* Clear Primary Navigation CTAs */}
@@ -97,7 +97,7 @@ export default function Home() {
                 {cinebook.category}
               </Badge>
               <span className="text-xs font-mono text-emerald-600 dark:text-emerald-400 font-medium">
-                ★ Atomic Seat Locking Concurrency
+                ★ Interactive 128-Seat Booking &amp; Demo Flow
               </span>
             </div>
             <CardDescription className="text-sm sm:text-base leading-relaxed text-foreground/80">
@@ -165,9 +165,9 @@ export default function Home() {
                 <Code2 size={14} />
                 <span>BUILDING</span>
               </div>
-              <CardTitle className="text-base">High-Concurrency API Hardening</CardTitle>
+              <CardTitle className="text-base">Full-Stack React Applications</CardTitle>
               <CardDescription className="text-xs leading-relaxed">
-                Refining seat-hold timeouts and transactional rollbacks in CineBook to ensure zero race conditions under concurrent client simulations.
+                Practicing how React frontends integrate with Express REST APIs, handle loading and error states, and validate user forms cleanly.
               </CardDescription>
             </CardHeader>
           </Card>
@@ -178,9 +178,9 @@ export default function Home() {
                 <Layers size={14} />
                 <span>EXPLORING</span>
               </div>
-              <CardTitle className="text-base">Modern React 19 &amp; Design Systems</CardTitle>
+              <CardTitle className="text-base">Modern React &amp; Accessible UI</CardTitle>
               <CardDescription className="text-xs leading-relaxed">
-                Investigating React 19 optimistic UI patterns, Tailwind CSS v4 performance, and building accessible, keyboard-first web components.
+                Learning reusable component patterns with React 19, styling with Tailwind CSS, and building keyboard-accessible web interfaces.
               </CardDescription>
             </CardHeader>
           </Card>
@@ -220,7 +220,7 @@ export default function Home() {
               </Link>
             </CardTitle>
             <CardDescription className="text-sm leading-relaxed text-muted-foreground">
-              A deep dive into how I engineered CineBook's concurrency model: preventing double-booking through optimistic UI updates, atomic PostgreSQL transactions, and automated hold timeouts.
+              A beginner-friendly walkthrough of how I built CineBook: creating the 128-seat layout, handling 10-minute seat holds, and adding a safe Demo Mode checkout flow.
             </CardDescription>
           </CardHeader>
         </Card>

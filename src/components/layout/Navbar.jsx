@@ -48,7 +48,7 @@ export default function Navbar() {
               {personalInfo.name}
             </span>
             <span className="text-[11px] text-muted-foreground hidden sm:inline-block">
-              AU CSE Dual-Degree
+              B.Tech CSE Graduate
             </span>
           </div>
         </Link>
@@ -63,10 +63,9 @@ export default function Navbar() {
               key={item.path}
               to={item.path}
               className={({ isActive }) =>
-                `rounded-md px-3 py-1.5 text-sm transition-colors ${
-                  isActive
-                    ? "bg-secondary text-foreground font-medium shadow-xs"
-                    : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
+                `rounded-md px-3 py-1.5 text-sm transition-colors ${isActive
+                  ? "bg-secondary text-foreground font-medium shadow-xs"
+                  : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
                 }`
               }
             >
@@ -135,10 +134,9 @@ export default function Navbar() {
                         key={item.path}
                         to={item.path}
                         className={({ isActive }) =>
-                          `flex items-center justify-between rounded-lg px-3 py-2.5 text-sm transition-colors ${
-                            isActive
-                              ? "bg-secondary font-medium text-foreground"
-                              : "text-muted-foreground hover:text-foreground hover:bg-secondary/60"
+                          `flex items-center justify-between rounded-lg px-3 py-2.5 text-sm transition-colors ${isActive
+                            ? "bg-secondary font-medium text-foreground"
+                            : "text-muted-foreground hover:text-foreground hover:bg-secondary/60"
                           }`
                         }
                       >

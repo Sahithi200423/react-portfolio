@@ -1,10 +1,10 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
-import { personalInfo, aboutData, educationData, skillsData } from "@/data/portfolioData";
+import { personalInfo, aboutData, educationData, experienceData, skillsData } from "@/data/portfolioData";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { FileDown, GraduationCap, MapPin, Code2, ArrowUpRight } from "lucide-react";
+import { FileDown, GraduationCap, Briefcase, MapPin, Code2, ArrowUpRight } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/SocialIcons";
 
 export default function About() {
@@ -26,11 +26,11 @@ export default function About() {
         <div className="flex flex-wrap items-center gap-2 pt-2 text-xs text-muted-foreground">
           <span className="inline-flex items-center gap-1.5 rounded-md border border-border bg-secondary/40 px-2.5 py-1">
             <MapPin size={13} className="text-primary" />
-            Visakhapatnam, Andhra Pradesh, India
+            {personalInfo.location}
           </span>
           <span className="inline-flex items-center gap-1.5 rounded-md border border-border bg-secondary/40 px-2.5 py-1">
             <GraduationCap size={13} className="text-primary" />
-            AUCE (A) B.Tech CSE — Graduated
+            AUCE (A) B.Tech CSE (2022–2026)
           </span>
         </div>
       </section>
@@ -48,18 +48,17 @@ export default function About() {
 
         <div className="prose prose-neutral dark:prose-invert max-w-none space-y-4 text-foreground/85 leading-relaxed text-sm sm:text-base">
           <p>
-            I completed my engineering degree in Computer Science and Engineering at 
-            <strong> Andhra University College of Engineering (Autonomous)</strong> in Visakhapatnam. 
-            My technical focus grew from a curiosity about how robust backends communicate with smooth, interactive frontends.
+            I completed my B.Tech in Computer Science and Engineering at 
+            <strong> Andhra University College of Engineering (Autonomous)</strong> in Visakhapatnam (2022–2026). 
+            My interest in software development grew from wanting to understand how React user interfaces connect with backend APIs and databases.
           </p>
           <p>
-            Rather than simply creating static UI mockups, I believe in learning by building full systems from end to end. 
-            When developing my flagship project, <strong>CineBook</strong>, I dove deep into distributed transaction challenges: 
-            how to handle real-time seat locks so two users never buy the same seat at the exact same second, how to structure 
-            state rollbacks gracefully, and how to make the checkout flow intuitive and accessible across screen sizes.
+            I learn best by building complete projects step by step. While working on <strong>CineBook</strong> and my 
+            internship projects, I practiced designing responsive layouts, managing component state, organizing Express API routes, 
+            and testing user flows so applications work reliably on desktop and mobile screens.
           </p>
           <p>
-            I value clean typography, thoughtful whitespace, and semantic code that prioritizes real human usability over unnecessary visual noise.
+            I focus on clean typography, thoughtful spacing, and readable code that makes applications clear and easy for people to use.
           </p>
         </div>
 
@@ -78,7 +77,57 @@ export default function About() {
         </div>
       </section>
 
-      {/* 3. Verified Education Credentials */}
+      {/* 3. Verified Internship Experience */}
+      <section className="space-y-6 border-t border-border/80 pt-10">
+        <div className="space-y-1">
+          <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">
+            Practical Experience
+          </span>
+          <h2 className="text-2xl font-bold tracking-tight text-foreground flex items-center gap-2">
+            <Briefcase className="h-6 w-6 text-primary" />
+            Experience
+          </h2>
+        </div>
+
+        <div className="space-y-4">
+          {experienceData.map((exp) => (
+            <Card key={exp.id} className="border-border">
+              <CardHeader className="space-y-2">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
+                  <CardTitle className="text-base sm:text-lg font-bold">
+                    {exp.role}
+                  </CardTitle>
+                  <span className="text-xs font-mono text-muted-foreground bg-secondary/60 px-2 py-0.5 rounded-md self-start sm:self-auto">
+                    {exp.period} • {exp.type}
+                  </span>
+                </div>
+                <CardDescription className="font-medium text-foreground/80 text-sm">
+                  {exp.organization}
+                </CardDescription>
+                {exp.location && (
+                  <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                    <MapPin size={12} />
+                    <span>{exp.location}</span>
+                  </div>
+                )}
+              </CardHeader>
+
+              <CardContent className="pt-0">
+                <ul className="space-y-2 text-xs sm:text-sm text-muted-foreground">
+                  {exp.responsibilities.map((item, idx) => (
+                    <li key={idx} className="flex items-start gap-2 leading-relaxed">
+                      <span className="text-primary font-bold">•</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* 4. Verified Education Credentials */}
       <section className="space-y-6 border-t border-border/80 pt-10">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div className="space-y-1">
@@ -155,7 +204,7 @@ export default function About() {
             Skills &amp; Technologies
           </h2>
           <p className="text-xs sm:text-sm text-muted-foreground">
-            Technologies and tools I work with daily across frontend, backend logic, and development workflows.
+            Technologies and tools I have used across frontend projects, API integration, and coursework.
           </p>
         </div>
 

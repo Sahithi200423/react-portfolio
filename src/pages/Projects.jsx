@@ -34,15 +34,15 @@ export default function Projects() {
 
   const categories = [
     { id: "all", label: "All Featured Projects" },
-    { id: "Full-Stack", label: "Full-Stack Architecture" },
-    { id: "Calculators", label: "Engineering & Calculators" },
+    { id: "Full-Stack", label: "Full-Stack Web App" },
+    { id: "Frontend", label: "Frontend & Calculators" },
   ];
 
   const cinebook = projectsData.find((p) => p.id === "cinebook") || projectsData[0];
   const groundwater = projectsData.find((p) => p.id === "groundwater") || projectsData[1];
 
   const showCinebook = filter === "all" || filter === "Full-Stack";
-  const showGroundwater = filter === "all" || filter === "Full-Stack" || filter === "Calculators";
+  const showGroundwater = filter === "all" || filter === "Frontend";
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 sm:py-20 space-y-16">
@@ -50,14 +50,14 @@ export default function Projects() {
       <section className="space-y-6">
         <div className="space-y-3">
           <Badge variant="outline" className="font-mono text-xs">
-            Software Architecture &amp; Production Systems
+            Software Projects &amp; Case Studies
           </Badge>
           <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-foreground">
             Featured Projects
           </h1>
           <p className="text-base sm:text-lg text-muted-foreground max-w-2xl leading-relaxed">
-            Full-stack web applications, atomic concurrency systems, and domain-specific engineering calculators. 
-            All details reflect verified codebases and implemented functionality.
+            Web applications, interactive booking flows, and responsive React interfaces. 
+            All details reflect verified codebases and implemented features.
           </p>
         </div>
 
@@ -85,10 +85,10 @@ export default function Projects() {
           <div className="flex items-center justify-between">
             <span className="text-xs font-mono text-muted-foreground uppercase tracking-wider flex items-center gap-1.5">
               <Sparkles size={13} className="text-primary" />
-              Flagship Production Project
+              Featured Full-Stack Project
             </span>
             <span className="text-xs font-mono text-emerald-600 dark:text-emerald-400 font-medium">
-              ★ Active Vercel Deployment
+              ★ Live Vercel Demo (Demo Mode)
             </span>
           </div>
 
@@ -202,17 +202,17 @@ export default function Projects() {
                       <DialogHeader className="space-y-2">
                         <div className="flex items-center gap-2">
                           <Badge variant="default" className="text-xs">
-                            CineBook V2 Architecture
+                            CineBook
                           </Badge>
                           <span className="text-xs font-mono text-muted-foreground">
-                            Verified Source Documentation
+                            Verified Project Notes
                           </span>
                         </div>
                         <DialogTitle className="text-xl sm:text-2xl">
-                          Technical Architecture &amp; Concurrency Model
+                          Project Structure &amp; Booking Flow
                         </DialogTitle>
                         <DialogDescription className="text-xs sm:text-sm">
-                          Detailed implementation specifications of CineBook's reservation engine.
+                          Overview of how CineBook handles seat selection, temporary holds, and demo checkout.
                         </DialogDescription>
                       </DialogHeader>
 
@@ -239,22 +239,22 @@ export default function Projects() {
                           </p>
                         </div>
 
-                        {/* 3. Concurrency & Seat Locking */}
+                        {/* 3. Seat Holds & Demo Mode */}
                         <div className="space-y-1.5 rounded-lg border border-border p-3.5 bg-secondary/30">
                           <div className="flex items-center gap-2 font-semibold text-foreground">
                             <Lock className="h-4 w-4 text-primary" />
-                            <span>3. Concurrency &amp; Atomic Seat Holds</span>
+                            <span>3. Seat Holds &amp; Demo Mode</span>
                           </div>
                           <p className="text-xs text-muted-foreground">
                             {cinebook.architecture.concurrency}
                           </p>
                         </div>
 
-                        {/* 4. Database & Payment Verification */}
+                        {/* 4. Database & Test Checkout */}
                         <div className="space-y-1.5 rounded-lg border border-border p-3.5 bg-secondary/30">
                           <div className="flex items-center gap-2 font-semibold text-foreground">
                             <Database className="h-4 w-4 text-primary" />
-                            <span>4. Database &amp; Payment Integrity</span>
+                            <span>4. Database &amp; Test Checkout</span>
                           </div>
                           <p className="text-xs text-muted-foreground">
                             {cinebook.architecture.database}
@@ -285,10 +285,10 @@ export default function Projects() {
           <div className="flex items-center justify-between">
             <span className="text-xs font-mono text-muted-foreground uppercase tracking-wider flex items-center gap-1.5">
               <Droplets size={13} className="text-primary" />
-              Featured Enterprise Platform
+              Frontend &amp; Calculator Project
             </span>
             <span className="text-xs font-mono text-cyan-600 dark:text-cyan-400 font-medium">
-              ★ 5 Engineering Domain Calculators
+              ★ 5 Interactive React Calculators
             </span>
           </div>
 
@@ -330,7 +330,7 @@ export default function Projects() {
                       <span className="h-1.5 w-1.5 rounded-full bg-primary mt-1.5 shrink-0" />
                       <div>
                         <strong className="text-foreground block text-[11px]">Project Cost Estimator</strong>
-                        <span className="text-muted-foreground text-[11px]">Budgeting with instant client-side jsPDF export</span>
+                        <span className="text-muted-foreground text-[11px]">Indicative project budget breakdown in INR &amp; USD</span>
                       </div>
                     </li>
                     <li className="flex items-start gap-2">
@@ -343,16 +343,16 @@ export default function Projects() {
                   </ul>
 
                   <div className="pt-2 border-t border-border/50 flex items-center justify-between text-[11px] font-mono text-muted-foreground">
-                    <span>Export format:</span>
+                    <span>Admin Export:</span>
                     <span className="inline-flex items-center gap-1 text-primary font-medium">
-                      <FileDown size={12} /> Client jsPDF Report
+                      <FileDown size={12} /> jsPDF Report (Admin View)
                     </span>
                   </div>
                 </div>
 
                 <div className="p-3.5 rounded-lg border border-border/60 bg-secondary/20 flex items-center gap-2.5 text-xs text-muted-foreground">
                   <ShieldCheck className="h-4 w-4 text-emerald-500 shrink-0" />
-                  <span>10-View Administrative Subsystem with Supabase data integration</span>
+                  <span>Demo Admin Dashboard using localStorage &amp; optional Supabase</span>
                 </div>
               </div>
 
@@ -435,14 +435,14 @@ export default function Projects() {
                               Global Groundwater Consultants
                             </Badge>
                             <span className="text-xs font-mono text-muted-foreground">
-                              Technical Implementation Specs
+                              Project Implementation Overview
                             </span>
                           </div>
                           <DialogTitle className="text-xl sm:text-2xl">
-                            Domain Calculators &amp; Architecture Model
+                            Calculators &amp; Frontend Structure
                           </DialogTitle>
                           <DialogDescription className="text-xs sm:text-sm">
-                            Implementation details of hydrogeological calculators, PDF export, and administrative subsystem.
+                            Overview of the 5 React calculators, local demo admin dashboard, and PDF report export.
                           </DialogDescription>
                         </DialogHeader>
 
@@ -451,7 +451,7 @@ export default function Projects() {
                           <div className="space-y-1.5 rounded-lg border border-border p-3.5 bg-secondary/30">
                             <div className="flex items-center gap-2 font-semibold text-foreground">
                               <Calculator className="h-4 w-4 text-primary" />
-                              <span>1. Five Specialized Domain Calculators</span>
+                              <span>1. Five Interactive React Calculators</span>
                             </div>
                             <p className="text-xs text-muted-foreground">
                               {groundwater.architecture.calculators}
@@ -462,7 +462,7 @@ export default function Projects() {
                           <div className="space-y-1.5 rounded-lg border border-border p-3.5 bg-secondary/30">
                             <div className="flex items-center gap-2 font-semibold text-foreground">
                               <Database className="h-4 w-4 text-primary" />
-                              <span>2. 10-View Admin Operations Subsystem</span>
+                              <span>2. Demo Admin Dashboard &amp; Local Storage</span>
                             </div>
                             <p className="text-xs text-muted-foreground">
                               {groundwater.architecture.adminSubsystem}
@@ -473,7 +473,7 @@ export default function Projects() {
                           <div className="space-y-1.5 rounded-lg border border-border p-3.5 bg-secondary/30">
                             <div className="flex items-center gap-2 font-semibold text-foreground">
                               <CheckCircle2 className="h-4 w-4 text-primary" />
-                              <span>3. Client Consultation &amp; Emergency Workflows</span>
+                              <span>3. Inquiry Forms &amp; Navigation</span>
                             </div>
                             <p className="text-xs text-muted-foreground">
                               {groundwater.architecture.workflows}
@@ -484,7 +484,7 @@ export default function Projects() {
                           <div className="space-y-1.5 rounded-lg border border-border p-3.5 bg-secondary/30">
                             <div className="flex items-center gap-2 font-semibold text-foreground">
                               <Sliders className="h-4 w-4 text-primary" />
-                              <span>4. Technical Stack &amp; Tools</span>
+                              <span>4. Frontend Stack &amp; Libraries</span>
                             </div>
                             <p className="text-xs text-muted-foreground">
                               {groundwater.architecture.stack}
