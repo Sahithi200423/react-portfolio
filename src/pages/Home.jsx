@@ -4,15 +4,16 @@ import { personalInfo, projectsData } from "@/data/portfolioData";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, BookOpen, ExternalLink, Code2, Sparkles, MapPin, Layers, Terminal } from "lucide-react";
+import { ArrowRight, ExternalLink, Code2, MapPin, Layers } from "lucide-react";
 import { GithubIcon } from "@/components/SocialIcons";
+import HeroCharacter from "@/components/HeroCharacter";
 
 export default function Home() {
   const cinebook = projectsData.find((p) => p.id === "cinebook") || projectsData[0];
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 sm:py-20 space-y-20">
-      {/* 1. Refined Hero Layout with Portrait & Generous Whitespace */}
+      {/* 1. Refined Hero Layout with 3D Character & Generous Whitespace */}
       <section className="space-y-8">
         {/* Availability status badge */}
         <div className="inline-flex items-center gap-2 rounded-full border border-border/80 bg-secondary/40 px-3 py-1 text-xs text-muted-foreground">
@@ -55,20 +56,12 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Portrait Framing (No distortion, elegant subtle border) */}
-          <div className="shrink-0 self-start md:self-center">
-            <div className="relative group">
-              <img
-                src={personalInfo.avatar}
-                alt={personalInfo.name}
-                className="h-32 w-32 sm:h-44 sm:w-44 rounded-2xl object-cover object-center border border-border shadow-xs transition-transform duration-300 motion-reduce:transition-none group-hover:scale-[1.02]"
-              />
-              <div className="absolute -bottom-2 -right-2 hidden sm:flex items-center gap-1.5 bg-background border border-border px-2.5 py-1 rounded-md shadow-xs text-[11px] font-mono text-muted-foreground">
-                <Terminal size={12} className="text-primary" />
-                <span>AUCE (A)</span>
-              </div>
-            </div>
-          </div>
+          {/* 3D Hero Character Framing with Mouse-Following & Gentle Float */}
+          <HeroCharacter
+            src="/assets/hero-character-3d.png"
+            alt={`3D character portrait of ${personalInfo.name}`}
+            badgeText="AUCE (A)"
+          />
         </div>
       </section>
 
