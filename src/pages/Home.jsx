@@ -10,6 +10,21 @@ import HeroCharacter from "@/components/HeroCharacter";
 
 export default function Home() {
   const cinebook = projectsData.find((p) => p.id === "cinebook") || projectsData[0];
+  const medislot = projectsData.find((p) => p.id === "medislot");
+  const featuredSpotlights = [
+    {
+      project: cinebook,
+      tagline: "★ Interactive 128-Seat Booking & Demo Flow",
+    },
+    ...(medislot
+      ? [
+          {
+            project: medislot,
+            tagline: "★ 4 Role-Based Dashboards & Clinic Demo",
+          },
+        ]
+      : []),
+  ];
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 sm:py-20 space-y-20">
@@ -65,15 +80,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2. Featured Project Spotlight: CineBook */}
+      {/* 2. Featured Project Spotlights: CineBook & MediSlot */}
       <section className="border-t border-border/80 pt-14 space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3">
           <div className="space-y-1">
             <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">
-              Featured Case Study
+              Featured Case Studies
             </span>
             <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
-              {cinebook.title}
+              Full-Stack Portfolio Applications
             </h2>
           </div>
           <Button variant="ghost" size="sm" asChild className="text-xs">
@@ -83,61 +98,75 @@ export default function Home() {
           </Button>
         </div>
 
-        <Card className="border-border hover:border-foreground/30 transition-all duration-200">
-          <CardHeader className="space-y-3">
-            <div className="flex flex-wrap items-center justify-between gap-2">
-              <Badge variant="default" className="font-mono text-xs">
-                {cinebook.category}
-              </Badge>
-              <span className="text-xs font-mono text-emerald-600 dark:text-emerald-400 font-medium">
-                ★ Interactive 128-Seat Booking &amp; Demo Flow
-              </span>
-            </div>
-            <CardDescription className="text-sm sm:text-base leading-relaxed text-foreground/80">
-              {cinebook.description}
-            </CardDescription>
-          </CardHeader>
-
-          <CardContent className="space-y-4">
-            {/* Verified Technical Highlights */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 rounded-lg bg-secondary/40 p-4 border border-border/60 text-xs">
-              {cinebook.highlights.map((highlight, idx) => (
-                <div key={idx} className="flex items-start gap-2">
-                  <span className="text-primary font-bold">•</span>
-                  <span className="text-muted-foreground">{highlight}</span>
+        <div className="space-y-6">
+          {featuredSpotlights.map(({ project, tagline }) => (
+            <Card key={project.id} className="border-border hover:border-foreground/30 transition-all duration-200">
+              <CardHeader className="space-y-3">
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <Badge variant="default" className="font-mono text-xs">
+                      {project.category}
+                    </Badge>
+                    {project.badge && (
+                      <Badge variant="secondary" className="font-mono text-xs">
+                        {project.badge}
+                      </Badge>
+                    )}
+                  </div>
+                  <span className="text-xs font-mono text-emerald-600 dark:text-emerald-400 font-medium">
+                    {tagline}
+                  </span>
                 </div>
-              ))}
-            </div>
+                <CardTitle className="text-xl sm:text-2xl font-bold tracking-tight text-foreground">
+                  {project.title}
+                </CardTitle>
+                <CardDescription className="text-sm sm:text-base leading-relaxed text-foreground/80">
+                  {project.description}
+                </CardDescription>
+              </CardHeader>
 
-            {/* Tech Badges */}
-            <div className="flex flex-wrap gap-1.5 pt-1">
-              {cinebook.technologies.map((tech) => (
-                <Badge key={tech} variant="tech">
-                  {tech}
-                </Badge>
-              ))}
-            </div>
-          </CardContent>
+              <CardContent className="space-y-4">
+                {/* Verified Technical Highlights */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 rounded-lg bg-secondary/40 p-4 border border-border/60 text-xs">
+                  {project.highlights.map((highlight, idx) => (
+                    <div key={idx} className="flex items-start gap-2">
+                      <span className="text-primary font-bold">•</span>
+                      <span className="text-muted-foreground">{highlight}</span>
+                    </div>
+                  ))}
+                </div>
 
-          <CardFooter className="flex flex-wrap items-center gap-3 pt-3 border-t border-border/60">
-            {cinebook.liveUrl && cinebook.liveUrl !== "#" && (
-              <Button size="sm" asChild>
-                <a href={cinebook.liveUrl} target="_blank" rel="noopener noreferrer">
-                  <ExternalLink className="mr-1.5 h-3.5 w-3.5" />
-                  Live Platform Demo
-                </a>
-              </Button>
-            )}
-            {cinebook.githubUrl && (
-              <Button variant="outline" size="sm" asChild>
-                <a href={cinebook.githubUrl} target="_blank" rel="noopener noreferrer">
-                  <GithubIcon size={14} className="mr-1.5" />
-                  GitHub Repository
-                </a>
-              </Button>
-            )}
-          </CardFooter>
-        </Card>
+                {/* Tech Badges */}
+                <div className="flex flex-wrap gap-1.5 pt-1">
+                  {project.technologies.map((tech) => (
+                    <Badge key={tech} variant="tech">
+                      {tech}
+                    </Badge>
+                  ))}
+                </div>
+              </CardContent>
+
+              <CardFooter className="flex flex-wrap items-center gap-3 pt-3 border-t border-border/60">
+                {project.liveUrl && project.liveUrl !== "#" && (
+                  <Button size="sm" asChild>
+                    <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                      <ExternalLink className="mr-1.5 h-3.5 w-3.5" />
+                      Live Platform Demo
+                    </a>
+                  </Button>
+                )}
+                {project.githubUrl && (
+                  <Button variant="outline" size="sm" asChild>
+                    <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                      <GithubIcon size={14} className="mr-1.5" />
+                      GitHub Repository
+                    </a>
+                  </Button>
+                )}
+              </CardFooter>
+            </Card>
+          ))}
+        </div>
       </section>
 
       {/* 3. Currently Learning & Building (Verified Data) */}

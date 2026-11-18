@@ -144,6 +144,53 @@ export const projectsData = [
     },
   },
   {
+    id: "medislot",
+    title: "MediSlot — AI-Powered Smart Clinic Booking & Management System",
+    category: "Full-Stack",
+    badge: "Portfolio Demo Application",
+    flagship: true,
+    featured: true,
+    summary:
+      "A full-stack healthcare management portfolio demo connecting patients, doctors, and clinic administrators through role-based dashboards, specialty doctor discovery, appointment booking workflows, and clinic operations.",
+    description:
+      "MediSlot is a full-stack healthcare management demo built with React 19, TypeScript, Express.js, Prisma, Supabase, and a Python FastAPI AI microservice. It demonstrates role-based workspaces for Patients, Doctors, Clinic Admins, and Platform Admins, doctor discovery, appointment booking/rescheduling/cancellation, and deterministic local AI-assisted summaries—presented strictly as a portfolio demonstration without real clinical diagnosis or live payment processing.",
+    problemSolved:
+      "Smart clinic booking platforms must coordinate separate workflows for patients, doctors, clinic managers, and platform administrators while keeping doctor availability accurate and preventing overlapping bookings.",
+    myContribution:
+      "Built the responsive React 19 and TypeScript frontend with Framer Motion polish, specialty doctor discovery, booking/rescheduling/cancellation modals, and four role-based dashboards integrated with an Express + Prisma backend, Supabase PostgreSQL database, and Python FastAPI microservice.",
+    technologies: [
+      "React 19",
+      "TypeScript",
+      "Tailwind CSS",
+      "Framer Motion",
+      "Node.js",
+      "Express.js",
+      "Prisma",
+      "Supabase",
+      "Python FastAPI",
+    ],
+    liveUrl: "https://medislot-ai-healthcare.pages.dev",
+    githubUrl: "https://github.com/Sahithi200423/MediSlot-AI-Healthcare",
+    backendHealthUrl: "https://medislot-backend-0cqg.onrender.com/api/health",
+    image: null,
+    highlights: [
+      "4 role-based workspaces: Patient, Doctor, Clinic Admin, and Platform Admin",
+      "Doctor discovery with specialty filter chips, live search, and INR (₹) demo fee display",
+      "Appointment booking, rescheduling, and cancellation workflows with Supabase PostgreSQL",
+      "Python FastAPI AI microservice using a deterministic local provider (no external LLM or clinical diagnosis)",
+    ],
+    architecture: {
+      rolesAndDashboards:
+        "Four responsive role-based dashboards (Patient, Doctor, Clinic Admin, and Platform Admin) backed by server-verified authentication and role-based authorization.",
+      bookingWorkflow:
+        "Browse doctors by specialty -> inspect live 30-minute availability slots -> reserve, reschedule, or cancel appointments with transactional conflict checks. Demo pricing is displayed in INR (₹) with no live payment gateway charging.",
+      dataAndBackend:
+        "Node.js and Express.js REST API using Prisma ORM with Supabase PostgreSQL to persist clinics, doctors, schedules, appointments, medical records metadata, and audit trails.",
+      aiService:
+        "Dedicated Python FastAPI microservice connected via authenticated backend requests. Uses a deterministic local provider for structured demo document summaries and plain-language term explanations—not a live external AI model or clinical diagnostic tool.",
+    },
+  },
+  {
     id: "groundwater",
     title: "Global Groundwater Consultants — Consultancy Website & Calculators",
     category: "Frontend",

@@ -24,12 +24,18 @@ import {
   Droplets,
   FileDown,
   ShieldCheck,
+  Stethoscope,
+  Calendar,
+  Bot,
+  Users,
+  Activity,
 } from "lucide-react";
 import { GithubIcon } from "@/components/SocialIcons";
 
 export default function Projects() {
   const [filter, setFilter] = React.useState("all");
   const [isCinebookModalOpen, setIsCinebookModalOpen] = React.useState(false);
+  const [isMedislotModalOpen, setIsMedislotModalOpen] = React.useState(false);
   const [isGroundwaterModalOpen, setIsGroundwaterModalOpen] = React.useState(false);
 
   const categories = [
@@ -39,9 +45,11 @@ export default function Projects() {
   ];
 
   const cinebook = projectsData.find((p) => p.id === "cinebook") || projectsData[0];
+  const medislot = projectsData.find((p) => p.id === "medislot");
   const groundwater = projectsData.find((p) => p.id === "groundwater") || projectsData[1];
 
   const showCinebook = filter === "all" || filter === "Full-Stack";
+  const showMedislot = filter === "all" || filter === "Full-Stack";
   const showGroundwater = filter === "all" || filter === "Frontend";
 
   return (
@@ -279,7 +287,272 @@ export default function Projects() {
         </section>
       )}
 
-      {/* 3. Global Groundwater Consultants Featured Project Spotlight */}
+      {/* 3. MediSlot Featured Case Study Spotlight */}
+      {showMedislot && medislot && (
+        <section className="space-y-4">
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <span className="text-xs font-mono text-muted-foreground uppercase tracking-wider flex items-center gap-1.5">
+              <Stethoscope size={13} className="text-primary" />
+              Featured Full-Stack Project
+            </span>
+            <span className="text-xs font-mono text-emerald-600 dark:text-emerald-400 font-medium">
+              ★ Live Cloudflare Pages &amp; Render Demo
+            </span>
+          </div>
+
+          <Card className="border-border hover:border-foreground/30 transition-all duration-200 overflow-hidden">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 p-6 sm:p-8">
+              {/* Left Column: Responsive Platform & Role-Based Architecture Panel */}
+              <div className="lg:col-span-5 space-y-3">
+                <div className="rounded-lg border border-border/80 bg-secondary/30 p-5 space-y-4">
+                  <div className="flex items-center justify-between gap-2 border-b border-border/60 pb-3">
+                    <div className="flex items-center gap-2">
+                      <Stethoscope className="h-5 w-5 text-primary shrink-0" />
+                      <span className="font-semibold text-foreground text-sm">
+                        4 Role-Based Workspaces
+                      </span>
+                    </div>
+                    <Badge variant="outline" className="text-[10px] font-mono whitespace-nowrap shrink-0">
+                      RBAC Demo
+                    </Badge>
+                  </div>
+
+                  {/* 4 Role Cards */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
+                    <div className="rounded-md border border-border/60 bg-background/70 p-3 space-y-1">
+                      <strong className="text-foreground block text-[11px]">Patient Portal</strong>
+                      <span className="text-muted-foreground text-[11px] leading-snug block">
+                        Specialty discovery, slot booking, reschedule &amp; cancel
+                      </span>
+                    </div>
+                    <div className="rounded-md border border-border/60 bg-background/70 p-3 space-y-1">
+                      <strong className="text-foreground block text-[11px]">Doctor Workspace</strong>
+                      <span className="text-muted-foreground text-[11px] leading-snug block">
+                        Consultation queue, weekly shifts, breaks &amp; notes
+                      </span>
+                    </div>
+                    <div className="rounded-md border border-border/60 bg-background/70 p-3 space-y-1">
+                      <strong className="text-foreground block text-[11px]">Clinic Admin</strong>
+                      <span className="text-muted-foreground text-[11px] leading-snug block">
+                        Master appointments, doctor roster &amp; staff invites
+                      </span>
+                    </div>
+                    <div className="rounded-md border border-border/60 bg-background/70 p-3 space-y-1">
+                      <strong className="text-foreground block text-[11px]">Platform Admin</strong>
+                      <span className="text-muted-foreground text-[11px] leading-snug block">
+                        Facility verification, user directory &amp; audit logs
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Full-Stack Service Topology */}
+                  <div className="pt-3 border-t border-border/50 space-y-2 text-[11px]">
+                    <span className="font-mono uppercase tracking-wider text-muted-foreground text-[10px] block">
+                      Deployed Service Architecture
+                    </span>
+                    <div className="grid grid-cols-1 gap-2 font-mono">
+                      <div className="rounded border border-border/60 bg-background/60 px-2.5 py-1.5 flex items-center gap-1.5 text-foreground/85">
+                        <Calendar size={12} className="text-primary shrink-0" />
+                        <span className="leading-snug">Express + Prisma API</span>
+                      </div>
+                      <div className="rounded border border-border/60 bg-background/60 px-2.5 py-1.5 flex items-center gap-1.5 text-foreground/85">
+                        <Database size={12} className="text-primary shrink-0" />
+                        <span className="leading-snug">Supabase PostgreSQL</span>
+                      </div>
+                      <div className="rounded border border-border/60 bg-background/60 px-2.5 py-1.5 flex items-center gap-1.5 text-foreground/85">
+                        <Bot size={12} className="text-primary shrink-0" />
+                        <span className="leading-snug">Python FastAPI AI (Deterministic Local)</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Transparent Portfolio Demo & Accuracy Notice */}
+                <div className="p-3.5 rounded-lg border border-border/60 bg-secondary/20 flex items-start gap-2.5 text-xs text-muted-foreground leading-relaxed">
+                  <ShieldCheck className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
+                  <span>
+                    Portfolio demonstration only — uses a deterministic local AI provider with no live payment gateway or clinical diagnosis.
+                  </span>
+                </div>
+              </div>
+
+              {/* Right Column: Case Study Details & Actions */}
+              <div className="lg:col-span-7 flex flex-col justify-between space-y-6">
+                <div className="space-y-4">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <Badge variant="default" className="text-xs font-mono">
+                      {medislot.category}
+                    </Badge>
+                    <Badge variant="secondary" className="text-xs font-mono">
+                      {medislot.badge}
+                    </Badge>
+                  </div>
+
+                  <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
+                    {medislot.title}
+                  </h2>
+
+                  <p className="text-sm sm:text-base text-foreground/80 leading-relaxed">
+                    {medislot.summary}
+                  </p>
+
+                  {/* Problem & Contribution Breakdown */}
+                  <div className="space-y-3 rounded-lg bg-secondary/40 p-4 border border-border/60 text-xs">
+                    <div>
+                      <span className="font-semibold text-foreground uppercase tracking-wider text-[11px] block">
+                        Problem Addressed:
+                      </span>
+                      <p className="text-muted-foreground mt-0.5 leading-relaxed">
+                        {medislot.problemSolved}
+                      </p>
+                    </div>
+
+                    <div className="pt-2 border-t border-border/40">
+                      <span className="font-semibold text-foreground uppercase tracking-wider text-[11px] block">
+                        My Contribution &amp; Architecture:
+                      </span>
+                      <p className="text-muted-foreground mt-0.5 leading-relaxed">
+                        {medislot.myContribution}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Technology Badges */}
+                  <div className="flex flex-wrap gap-1.5 pt-1">
+                    {medislot.technologies.map((tech) => (
+                      <Badge key={tech} variant="tech">
+                        {tech}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Actions: Live Demo, Source Code, and Architecture Modal */}
+                <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-border/60">
+                  {medislot.liveUrl && (
+                    <Button size="sm" asChild className="cursor-pointer">
+                      <a href={medislot.liveUrl} target="_blank" rel="noopener noreferrer">
+                        <ExternalLink className="mr-1.5 h-3.5 w-3.5" />
+                        Launch Live Demo
+                      </a>
+                    </Button>
+                  )}
+
+                  {medislot.githubUrl && (
+                    <Button variant="outline" size="sm" asChild className="cursor-pointer">
+                      <a href={medislot.githubUrl} target="_blank" rel="noopener noreferrer">
+                        <GithubIcon size={14} className="mr-1.5" />
+                        Source Code
+                      </a>
+                    </Button>
+                  )}
+
+                  <Dialog open={isMedislotModalOpen} onOpenChange={setIsMedislotModalOpen}>
+                    <DialogTrigger asChild>
+                      <Button variant="secondary" size="sm" className="cursor-pointer">
+                        <Layers className="mr-1.5 h-3.5 w-3.5" />
+                        View Architecture Specs
+                      </Button>
+                    </DialogTrigger>
+
+                    <DialogContent className="max-w-2xl">
+                      <DialogHeader className="space-y-2">
+                        <div className="flex items-center gap-2">
+                          <Badge variant="default" className="text-xs">
+                            MediSlot
+                          </Badge>
+                          <span className="text-xs font-mono text-muted-foreground">
+                            Portfolio Demo Architecture Notes
+                          </span>
+                        </div>
+                        <DialogTitle className="text-xl sm:text-2xl">
+                          System Architecture &amp; Role Workflows
+                        </DialogTitle>
+                        <DialogDescription className="text-xs sm:text-sm">
+                          Overview of MediSlot's multi-role dashboards, booking workflows, Supabase database, and deterministic local FastAPI service.
+                        </DialogDescription>
+                      </DialogHeader>
+
+                      <div className="space-y-4 py-3 text-xs sm:text-sm leading-relaxed text-foreground/85">
+                        <div className="space-y-1.5 rounded-lg border border-border p-3.5 bg-secondary/30">
+                          <div className="flex items-center gap-2 font-semibold text-foreground">
+                            <Users className="h-4 w-4 text-primary" />
+                            <span>1. Role-Based Dashboards &amp; Access Control</span>
+                          </div>
+                          <p className="text-xs text-muted-foreground">
+                            {medislot.architecture.rolesAndDashboards}
+                          </p>
+                        </div>
+
+                        <div className="space-y-1.5 rounded-lg border border-border p-3.5 bg-secondary/30">
+                          <div className="flex items-center gap-2 font-semibold text-foreground">
+                            <Calendar className="h-4 w-4 text-primary" />
+                            <span>2. Doctor Discovery &amp; Booking Workflows</span>
+                          </div>
+                          <p className="text-xs text-muted-foreground">
+                            {medislot.architecture.bookingWorkflow}
+                          </p>
+                        </div>
+
+                        <div className="space-y-1.5 rounded-lg border border-border p-3.5 bg-secondary/30">
+                          <div className="flex items-center gap-2 font-semibold text-foreground">
+                            <Database className="h-4 w-4 text-primary" />
+                            <span>3. Express, Prisma &amp; Supabase Backend</span>
+                          </div>
+                          <p className="text-xs text-muted-foreground">
+                            {medislot.architecture.dataAndBackend}
+                          </p>
+                        </div>
+
+                        <div className="space-y-1.5 rounded-lg border border-border p-3.5 bg-secondary/30">
+                          <div className="flex items-center gap-2 font-semibold text-foreground">
+                            <Bot className="h-4 w-4 text-primary" />
+                            <span>4. Python FastAPI AI Service (Deterministic Local)</span>
+                          </div>
+                          <p className="text-xs text-muted-foreground">
+                            {medislot.architecture.aiService}
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-border">
+                        {medislot.backendHealthUrl && (
+                          <Button variant="ghost" size="sm" asChild className="text-xs">
+                            <a href={medislot.backendHealthUrl} target="_blank" rel="noopener noreferrer">
+                              <Activity className="mr-1.5 h-3.5 w-3.5" />
+                              Backend Health Check
+                            </a>
+                          </Button>
+                        )}
+                        <div className="flex flex-wrap items-center gap-2">
+                          {medislot.githubUrl && (
+                            <Button variant="outline" size="sm" asChild>
+                              <a href={medislot.githubUrl} target="_blank" rel="noopener noreferrer">
+                                <GithubIcon size={14} className="mr-1.5" />
+                                GitHub
+                              </a>
+                            </Button>
+                          )}
+                          {medislot.liveUrl && (
+                            <Button size="sm" asChild>
+                              <a href={medislot.liveUrl} target="_blank" rel="noopener noreferrer">
+                                <ExternalLink className="mr-1.5 h-3.5 w-3.5" />
+                                Open Live Demo
+                              </a>
+                            </Button>
+                          )}
+                        </div>
+                      </div>
+                    </DialogContent>
+                  </Dialog>
+                </div>
+              </div>
+            </div>
+          </Card>
+        </section>
+      )}
+
+      {/* 4. Global Groundwater Consultants Featured Project Spotlight */}
       {showGroundwater && groundwater && (
         <section className="space-y-4">
           <div className="flex items-center justify-between">
